@@ -1,0 +1,13 @@
+package com.asklepios.asklepios_server;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class AsklepiosServerApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
