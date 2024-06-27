@@ -1,6 +1,7 @@
 package com.asklepios.asklepios_server.user;
 
 import com.asklepios.asklepios_server.token.Token;
+import com.asklepios.asklepios_server.util.AddressEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -16,6 +17,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -23,11 +25,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "_user")
-public class User implements UserDetails {
+@Table(name = "user")
+public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
 
     private String firstname;
 
@@ -36,6 +38,24 @@ public class User implements UserDetails {
     private String email;
 
     private String password;
+
+    private String phone;
+
+    private AddressEntity address;
+
+    private Date dateOfBirth;
+
+    private EnumGender gender;
+
+    private EnumNationality nationality;
+
+    private boolean accountNonExpired = true;
+
+    private boolean accountNonBlocked = true;
+
+    private boolean credentialsNonExpired = true;
+
+    private boolean enabled = true;
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -60,21 +80,21 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return accountNonExpired;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return accountNonBlocked;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return credentialsNonExpired;
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled;
     }
 }

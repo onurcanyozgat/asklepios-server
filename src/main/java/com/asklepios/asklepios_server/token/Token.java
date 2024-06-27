@@ -1,6 +1,6 @@
 package com.asklepios.asklepios_server.token;
 
-import com.asklepios.asklepios_server.user.User;
+import com.asklepios.asklepios_server.user.UserEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -37,5 +37,5 @@ public class Token {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    public User user;
+    public UserEntity user;
 }
