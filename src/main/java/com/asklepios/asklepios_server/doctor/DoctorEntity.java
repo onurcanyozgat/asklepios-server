@@ -1,6 +1,6 @@
 package com.asklepios.asklepios_server.doctor;
 
-import com.asklepios.asklepios_server.clinic.data.ClinicEntity;
+import com.asklepios.asklepios_server.clinic.ClinicEntity;
 import com.asklepios.asklepios_server.user.EnumNationality;
 import com.asklepios.asklepios_server.util.AddressEntity;
 import jakarta.persistence.CascadeType;
