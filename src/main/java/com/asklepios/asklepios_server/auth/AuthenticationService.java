@@ -5,7 +5,7 @@ import com.asklepios.asklepios_server.config.JwtService;
 import com.asklepios.asklepios_server.token.Token;
 import com.asklepios.asklepios_server.token.TokenRepository;
 import com.asklepios.asklepios_server.token.TokenType;
-import com.asklepios.asklepios_server.user.UserEntity;
+import com.asklepios.asklepios_server.user.User;
 import com.asklepios.asklepios_server.user.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
@@ -33,7 +33,7 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
-        var user = UserEntity.builder().firstname(request.getFirstname()).lastname(request.getLastname()).email(request.getEmail())
+        var user = User.builder().firstname(request.getFirstname()).lastname(request.getLastname()).email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword())).role(request.getRole()).build();
         var savedUser = repository.save(user);
         var jwtToken = jwtService.generateToken(user);
@@ -52,13 +52,13 @@ public class AuthenticationService {
         return AuthenticationResponse.builder().accessToken(jwtToken).refreshToken(refreshToken).build();
     }
 
-    private void saveUserToken(UserEntity user, String jwtToken) {
+    private void saveUserToken(User user, String jwtToken) {
         var token = Token.builder().user(user).token(jwtToken).tokenType(TokenType.BEARER).expired(false).revoked(false).build();
         tokenRepository.save(token);
     }
 
-    private void revokeAllUserTokens(UserEntity user) {
-        var validUserTokens = tokenRepository.findAllValidTokenByUser(user.getId());
+    private void revokeAllUserTokens(User user) {
+        var validUserTokens = tokenRepository.findAllValidTokenByUser(user.getId().intValue());
       if (validUserTokens.isEmpty()) {
         return;
       }

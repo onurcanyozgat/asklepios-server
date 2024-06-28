@@ -7,7 +7,9 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,8 +27,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user")
-public class UserEntity implements UserDetails {
+@Table(name = "_user")
+public class User implements UserDetails {
     @Id
     @GeneratedValue
     private Long id;
@@ -41,12 +43,16 @@ public class UserEntity implements UserDetails {
 
     private String phone;
 
+    @OneToOne
+    @JoinColumn(name = "addressId", referencedColumnName = "id")
     private AddressEntity address;
 
     private Date dateOfBirth;
 
+    @Enumerated(EnumType.STRING)
     private EnumGender gender;
 
+    @Enumerated(EnumType.STRING)
     private EnumNationality nationality;
 
     private boolean accountNonExpired = true;

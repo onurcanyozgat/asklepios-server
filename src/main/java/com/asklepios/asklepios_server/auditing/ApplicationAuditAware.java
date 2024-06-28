@@ -1,6 +1,6 @@
 package com.asklepios.asklepios_server.auditing;
 
-import com.asklepios.asklepios_server.user.UserEntity;
+import com.asklepios.asklepios_server.user.User;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -15,7 +15,7 @@ public class ApplicationAuditAware implements AuditorAware<Integer> {
         if (authentication == null || !authentication.isAuthenticated() || authentication instanceof AnonymousAuthenticationToken) {
             return Optional.empty();
         }
-        UserEntity userPrincipal = (UserEntity) authentication.getPrincipal();
+        User userPrincipal = (User) authentication.getPrincipal();
         return Optional.of(userPrincipal.getId().intValue());
     }
 }

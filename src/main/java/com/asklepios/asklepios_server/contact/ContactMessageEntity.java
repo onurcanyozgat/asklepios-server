@@ -1,8 +1,10 @@
 package com.asklepios.asklepios_server.contact;
 
 import com.asklepios.asklepios_server.user.EnumNationality;
-import com.asklepios.asklepios_server.user.UserEntity;
+import com.asklepios.asklepios_server.user.User;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -26,11 +28,12 @@ public class ContactMessageEntity {
 
     private String surname;
 
+    @Enumerated(EnumType.STRING)
     private EnumNationality nationality;
 
     private String message;
 
-    private UserEntity receiver;
+    private User receiver;
 
     private Date messageTime;
 }

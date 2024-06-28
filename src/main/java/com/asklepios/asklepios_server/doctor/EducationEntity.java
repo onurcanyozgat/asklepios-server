@@ -1,9 +1,13 @@
 package com.asklepios.asklepios_server.doctor;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -19,6 +23,7 @@ public class EducationEntity {
 
     private int graduateYear;
 
+    @Enumerated(EnumType.STRING)
     private EnumUniversityDegree degree;
 
     private String department;
@@ -27,4 +32,7 @@ public class EducationEntity {
 
     private String country;
 
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private DoctorEntity doctor;
 }
