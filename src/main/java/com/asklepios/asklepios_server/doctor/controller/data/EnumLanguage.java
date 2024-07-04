@@ -1,4 +1,4 @@
-package com.asklepios.asklepios_server.doctor;
+package com.asklepios.asklepios_server.doctor.controller.data;
 
 public enum EnumLanguage {
     TURKISH,

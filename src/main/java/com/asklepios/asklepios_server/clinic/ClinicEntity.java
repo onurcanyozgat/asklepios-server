@@ -1,6 +1,6 @@
 package com.asklepios.asklepios_server.clinic;
 
-import com.asklepios.asklepios_server.doctor.DoctorEntity;
+import com.asklepios.asklepios_server.doctor.controller.data.entity.DoctorEntity;
 import com.asklepios.asklepios_server.util.AddressEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
