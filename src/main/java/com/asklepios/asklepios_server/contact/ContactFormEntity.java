@@ -1,6 +1,6 @@
 package com.asklepios.asklepios_server.contact;
 
-import com.asklepios.asklepios_server.treatmentservice.EnumTreatment;
+import com.asklepios.asklepios_server.treatmentservice.data.EnumTreatment;
 import com.asklepios.asklepios_server.util.data.entity.TelephoneNumberEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

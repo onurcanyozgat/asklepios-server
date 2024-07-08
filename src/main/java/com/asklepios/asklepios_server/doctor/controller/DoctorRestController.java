@@ -45,7 +45,7 @@ public class DoctorRestController {
         }
     }
 
-    @Operation(description = "Update the doctor info", summary = "Create a doctor", responses = {@ApiResponse(description = "Success", responseCode = "200"),
+    @Operation(description = "Update the doctor info", summary = "Update the doctor info", responses = {@ApiResponse(description = "Success", responseCode = "200"),
             @ApiResponse(description = "Id can not be null", responseCode = "400"),
             @ApiResponse(description = "Unauthorized / Invalid Token", responseCode = "403")})
     @PutMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)

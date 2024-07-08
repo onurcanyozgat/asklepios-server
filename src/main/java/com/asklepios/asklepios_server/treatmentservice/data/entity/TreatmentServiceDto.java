@@ -1,5 +1,6 @@
-package com.asklepios.asklepios_server.treatmentservice;
+package com.asklepios.asklepios_server.treatmentservice.data.entity;
 
+import com.asklepios.asklepios_server.treatmentservice.data.EnumTreatment;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -8,17 +9,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Entity
-@Table(name = "treatmentService")
-public class TreatmentServiceEntity {
+@NoArgsConstructor
+public class TreatmentServiceDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Enumerated(EnumType.STRING)
     private EnumTreatment treatment;
 
     private String description;
@@ -26,6 +24,5 @@ public class TreatmentServiceEntity {
     private double price;
 
     private int durationInMinutes;
-
 
 }

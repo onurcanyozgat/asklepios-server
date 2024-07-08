@@ -1,4 +1,4 @@
-package com.asklepios.asklepios_server.treatmentservice;
+package com.asklepios.asklepios_server.treatmentservice.data;
 
 public enum EnumTreatment {
     ORAL_DENTAL_HEALTH,

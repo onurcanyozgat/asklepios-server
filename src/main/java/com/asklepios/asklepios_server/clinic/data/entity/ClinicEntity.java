@@ -1,6 +1,7 @@
 package com.asklepios.asklepios_server.clinic.data.entity;
 
 import com.asklepios.asklepios_server.doctor.data.entity.DoctorEntity;
+import com.asklepios.asklepios_server.treatmentservice.data.entity.TreatmentServiceEntity;
 import com.asklepios.asklepios_server.util.data.entity.AddressEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -35,5 +36,8 @@ public class ClinicEntity {
 
     @OneToMany(mappedBy = "clinic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<DoctorEntity> doctors;
+
+    @OneToMany(mappedBy = "clinic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<TreatmentServiceEntity> treatments;
 
 }
