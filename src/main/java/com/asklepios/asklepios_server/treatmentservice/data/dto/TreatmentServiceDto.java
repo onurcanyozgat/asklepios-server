@@ -1,4 +1,4 @@
-package com.asklepios.asklepios_server.treatmentservice.data.entity;
+package com.asklepios.asklepios_server.treatmentservice.data.dto;
 
 import com.asklepios.asklepios_server.treatmentservice.data.EnumTreatment;
 import jakarta.persistence.Entity;
