@@ -1,4 +1,4 @@
-package com.asklepios.asklepios_server.doctor.controller.data.entity;
+package com.asklepios.asklepios_server.doctor.data.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

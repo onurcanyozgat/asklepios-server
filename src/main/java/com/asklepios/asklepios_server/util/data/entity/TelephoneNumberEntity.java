@@ -1,4 +1,4 @@
-package com.asklepios.asklepios_server.util;
+package com.asklepios.asklepios_server.util.data.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

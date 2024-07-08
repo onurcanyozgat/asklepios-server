@@ -1,6 +1,6 @@
-package com.asklepios.asklepios_server.doctor.controller.data.entity;
+package com.asklepios.asklepios_server.doctor.data.entity;
 
-import com.asklepios.asklepios_server.doctor.controller.data.EnumUniversityDegree;
+import com.asklepios.asklepios_server.doctor.data.EnumUniversityDegree;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

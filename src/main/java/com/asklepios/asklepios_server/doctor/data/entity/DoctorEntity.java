@@ -1,10 +1,10 @@
-package com.asklepios.asklepios_server.doctor.controller.data.entity;
+package com.asklepios.asklepios_server.doctor.data.entity;
 
-import com.asklepios.asklepios_server.clinic.ClinicEntity;
-import com.asklepios.asklepios_server.doctor.controller.data.EnumLanguage;
-import com.asklepios.asklepios_server.doctor.controller.data.EnumAcademicRank;
+import com.asklepios.asklepios_server.clinic.data.entity.ClinicEntity;
+import com.asklepios.asklepios_server.doctor.data.EnumLanguage;
+import com.asklepios.asklepios_server.doctor.data.EnumAcademicRank;
 import com.asklepios.asklepios_server.user.EnumNationality;
-import com.asklepios.asklepios_server.util.AddressEntity;
+import com.asklepios.asklepios_server.util.data.entity.AddressEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;

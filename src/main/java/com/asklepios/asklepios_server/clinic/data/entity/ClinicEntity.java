@@ -1,7 +1,7 @@
-package com.asklepios.asklepios_server.clinic;
+package com.asklepios.asklepios_server.clinic.data.entity;
 
-import com.asklepios.asklepios_server.doctor.controller.data.entity.DoctorEntity;
-import com.asklepios.asklepios_server.util.AddressEntity;
+import com.asklepios.asklepios_server.doctor.data.entity.DoctorEntity;
+import com.asklepios.asklepios_server.util.data.entity.AddressEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

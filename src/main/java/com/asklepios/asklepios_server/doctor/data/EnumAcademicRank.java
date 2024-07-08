@@ -1,4 +1,4 @@
-package com.asklepios.asklepios_server.doctor.controller.data;
+package com.asklepios.asklepios_server.doctor.data;
 
 public enum EnumAcademicRank {
     // docent

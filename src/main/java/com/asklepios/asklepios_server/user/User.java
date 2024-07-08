@@ -1,7 +1,7 @@
 package com.asklepios.asklepios_server.user;
 
 import com.asklepios.asklepios_server.token.Token;
-import com.asklepios.asklepios_server.util.AddressEntity;
+import com.asklepios.asklepios_server.util.data.entity.AddressEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
