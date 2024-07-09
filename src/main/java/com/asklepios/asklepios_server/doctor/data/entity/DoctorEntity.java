@@ -22,6 +22,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -46,10 +47,10 @@ public class DoctorEntity {
     private List<EnumLanguage> languages;
 
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<EducationEntity> educationList;
+    private Set<EducationEntity> educationList;
 
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<CareerEntity> careerList;
+    private Set<CareerEntity> careerList;
 
     @ElementCollection
     private List<String> achievements;

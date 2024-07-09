@@ -16,6 +16,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -35,9 +36,9 @@ public class ClinicEntity {
     private String contactInfo;
 
     @OneToMany(mappedBy = "clinic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<DoctorEntity> doctors;
+    private Set<DoctorEntity> doctors;
 
     @OneToMany(mappedBy = "clinic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<TreatmentServiceEntity> treatments;
+    private Set<TreatmentServiceEntity> treatments;
 
 }

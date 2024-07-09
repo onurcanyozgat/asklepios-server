@@ -1,5 +1,8 @@
-package com.asklepios.asklepios_server.contact;
+package com.asklepios.asklepios_server.contact.data.entity;
 
+import com.asklepios.asklepios_server.contact.EnumContactFormCommunicationType;
+import com.asklepios.asklepios_server.contact.EnumContactFormPatient;
+import com.asklepios.asklepios_server.contact.EnumContactFormTime;
 import com.asklepios.asklepios_server.treatmentservice.data.EnumTreatment;
 import com.asklepios.asklepios_server.util.data.entity.TelephoneNumberEntity;
 import jakarta.persistence.Entity;
@@ -12,6 +15,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+
+import java.util.Date;
 
 @Data
 @Entity
@@ -43,5 +48,7 @@ public class ContactFormEntity {
     @OneToOne
     @JoinColumn(name = "telephoneNumberId", referencedColumnName = "id")
     private TelephoneNumberEntity telephoneNumber;
+
+    private Date createdAt;
 
 }

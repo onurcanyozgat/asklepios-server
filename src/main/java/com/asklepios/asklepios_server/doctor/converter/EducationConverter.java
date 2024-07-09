@@ -2,11 +2,9 @@ package com.asklepios.asklepios_server.doctor.converter;
 
 import com.asklepios.asklepios_server.doctor.data.dto.EducationDto;
 import com.asklepios.asklepios_server.doctor.data.entity.EducationEntity;
-import org.springframework.stereotype.Component;
 
-@Component
 public class EducationConverter {
-    public EducationDto toDto(EducationEntity entity) {
+    public static EducationDto toDto(EducationEntity entity) {
         EducationDto dto = new EducationDto();
         dto.setId(entity.getId());
         dto.setStartYear(entity.getStartYear());
@@ -18,7 +16,7 @@ public class EducationConverter {
         return dto;
     }
 
-    public EducationEntity toEntity(EducationDto dto) {
+    public static EducationEntity toEntity(EducationDto dto) {
         EducationEntity entity = new EducationEntity();
         entity.setId(dto.getId());
         entity.setStartYear(dto.getStartYear());

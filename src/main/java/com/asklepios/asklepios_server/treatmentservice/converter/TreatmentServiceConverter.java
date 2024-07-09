@@ -2,11 +2,10 @@ package com.asklepios.asklepios_server.treatmentservice.converter;
 
 import com.asklepios.asklepios_server.treatmentservice.data.dto.TreatmentServiceDto;
 import com.asklepios.asklepios_server.treatmentservice.data.entity.TreatmentServiceEntity;
-import org.springframework.stereotype.Component;
 
-@Component
 public class TreatmentServiceConverter {
-    public TreatmentServiceDto toDto(TreatmentServiceEntity entity) {
+
+    public static TreatmentServiceDto toDto(TreatmentServiceEntity entity) {
         TreatmentServiceDto dto = new TreatmentServiceDto();
         dto.setId(entity.getId());
         dto.setTreatment(entity.getTreatment());
@@ -16,7 +15,7 @@ public class TreatmentServiceConverter {
         return dto;
     }
 
-    public TreatmentServiceEntity toEntity(TreatmentServiceDto dto) {
+    public static TreatmentServiceEntity toEntity(TreatmentServiceDto dto) {
         TreatmentServiceEntity entity = new TreatmentServiceEntity();
         entity.setId(dto.getId());
         entity.setTreatment(dto.getTreatment());

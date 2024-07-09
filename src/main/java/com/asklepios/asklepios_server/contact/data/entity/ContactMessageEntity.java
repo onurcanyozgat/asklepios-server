@@ -1,4 +1,4 @@
-package com.asklepios.asklepios_server.contact;
+package com.asklepios.asklepios_server.contact.data.entity;
 
 import com.asklepios.asklepios_server.user.EnumNationality;
 import com.asklepios.asklepios_server.user.User;

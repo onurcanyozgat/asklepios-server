@@ -2,11 +2,9 @@ package com.asklepios.asklepios_server.util.converter;
 
 import com.asklepios.asklepios_server.util.data.dto.AddressDto;
 import com.asklepios.asklepios_server.util.data.entity.AddressEntity;
-import org.springframework.stereotype.Component;
 
-@Component
 public class AddressConverter {
-    public AddressDto toDto(AddressEntity entity) {
+    public static AddressDto toDto(AddressEntity entity) {
         AddressDto dto = new AddressDto();
         dto.setId(entity.getId());
         dto.setAddress(entity.getAddress());
@@ -17,7 +15,7 @@ public class AddressConverter {
         return dto;
     }
 
-    public AddressEntity toEntity(AddressDto dto) {
+    public static AddressEntity toEntity(AddressDto dto) {
         AddressEntity entity = new AddressEntity();
         entity.setId(dto.getId());
         entity.setAddress(dto.getAddress());

@@ -18,38 +18,35 @@ public class ClinicServiceImpl implements ClinicService {
 
     private final ClinicRepository repository;
 
-    private final ClinicConverter converter;
-
     @Autowired
-    public ClinicServiceImpl(ClinicRepository repository, ClinicConverter converter) {
+    public ClinicServiceImpl(ClinicRepository repository) {
         this.repository = repository;
-        this.converter = converter;
     }
 
     @Override
     public ClinicDto create(ClinicDto clinicDto) {
-        ClinicEntity entity = converter.toEntity(clinicDto);
+        ClinicEntity entity = ClinicConverter.toEntity(clinicDto);
         ClinicEntity savedEntity = repository.save(entity);
-        return converter.toDto(savedEntity);
+        return ClinicConverter.toDto(savedEntity);
     }
 
     @Override
     public ClinicDto findById(Long id) throws NoSuchElementException {
         Optional<ClinicEntity> optionalClinicEntity = repository.findById(id);
         ClinicEntity entity = optionalClinicEntity.orElseThrow();
-        return converter.toDto(entity);
+        return ClinicConverter.toDto(entity);
     }
 
     @Override
     public List<ClinicDto> getAll() {
         List<ClinicEntity> allClinicEntities = repository.findAll();
-        return allClinicEntities.stream().map(converter::toDto).collect(Collectors.toList());
+        return allClinicEntities.stream().map(ClinicConverter::toDto).collect(Collectors.toList());
     }
 
     @Override
     public List<ClinicDto> getPopular() {
         // TODO not implemented yet
         List<ClinicEntity> allClinicEntities = repository.findAll();
-        return allClinicEntities.stream().map(converter::toDto).collect(Collectors.toList());
+        return allClinicEntities.stream().map(ClinicConverter::toDto).collect(Collectors.toList());
     }
 }
