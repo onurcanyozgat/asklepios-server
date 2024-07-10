@@ -1,6 +1,5 @@
 package com.asklepios.asklepios_server.auth;
 
-
 import com.asklepios.asklepios_server.config.JwtService;
 import com.asklepios.asklepios_server.token.Token;
 import com.asklepios.asklepios_server.token.TokenRepository;
@@ -59,9 +58,9 @@ public class AuthenticationService {
 
     private void revokeAllUserTokens(User user) {
         var validUserTokens = tokenRepository.findAllValidTokenByUser(user.getId().intValue());
-      if (validUserTokens.isEmpty()) {
-        return;
-      }
+        if (validUserTokens.isEmpty()) {
+            return;
+        }
         validUserTokens.forEach(token -> {
             token.setExpired(true);
             token.setRevoked(true);

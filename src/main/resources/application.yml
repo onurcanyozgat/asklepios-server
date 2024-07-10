@@ -13,7 +13,17 @@ spring:
         format_sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-
+  mail:
+    host: mail.apollotravel.com.tr
+    port: 465
+    username: test@apollotravel.com.tr
+    password: asklepios123
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
 application:
   security:
     jwt:

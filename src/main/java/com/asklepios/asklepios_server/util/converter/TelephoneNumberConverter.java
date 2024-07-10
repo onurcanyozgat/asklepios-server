@@ -16,7 +16,7 @@ public class TelephoneNumberConverter {
         TelephoneNumberEntity entity = new TelephoneNumberEntity();
         entity.setId(dto.getId());
         entity.setCountryCode(dto.getCountryCode());
-        entity.setNumber(entity.getNumber());
+        entity.setNumber(dto.getNumber());
         return entity;
     }
 }

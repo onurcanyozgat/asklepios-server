@@ -37,6 +37,7 @@ public class ContactFormController {
         try {
             return ResponseEntity.ok(contactFormService.save(contactFormDto));
         } catch (Exception ex) {
+            log.error("An error occurred while sending contact form.", ex);
             return ResponseEntity.internalServerError().build();
         }
     }

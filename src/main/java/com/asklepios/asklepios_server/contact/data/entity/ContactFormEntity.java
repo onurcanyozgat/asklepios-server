@@ -5,6 +5,7 @@ import com.asklepios.asklepios_server.contact.EnumContactFormPatient;
 import com.asklepios.asklepios_server.contact.EnumContactFormTime;
 import com.asklepios.asklepios_server.treatmentservice.data.EnumTreatment;
 import com.asklepios.asklepios_server.util.data.entity.TelephoneNumberEntity;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -45,8 +46,8 @@ public class ContactFormEntity {
 
     private String email;
 
-    @OneToOne
-    @JoinColumn(name = "telephoneNumberId", referencedColumnName = "id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "telephoneNumberId",referencedColumnName = "id")
     private TelephoneNumberEntity telephoneNumber;
 
     private Date createdAt;

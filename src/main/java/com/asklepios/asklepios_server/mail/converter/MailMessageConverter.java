@@ -8,25 +8,31 @@ import org.springframework.stereotype.Component;
 public class MailMessageConverter {
     private static final String CONTACT_FORM_SUBJECT = "Information Request!";
 
+    private static final String CONTACT_FORM_SENDER = "test@apollotravel.com.tr";
+
+    // TODO: must be sent to operator (info@asklepios.com)
+    private static final String CONTACT_FORM_RECEIVER = "onurcanyozgat@hotmail.com";
+
     public MailMessageDto toMailMessage(ContactFormDto contactForm) {
         MailMessageDto mailMessageDto = new MailMessageDto();
         mailMessageDto.setId(System.currentTimeMillis());
         mailMessageDto.setSubject(CONTACT_FORM_SUBJECT);
-        mailMessageDto.setSender(contactForm.getEmail());
-        mailMessageDto.setReceiver("");
+        mailMessageDto.setSender(CONTACT_FORM_SENDER);
+        mailMessageDto.setReceiver(CONTACT_FORM_RECEIVER);
         mailMessageDto.setContent(generateMailContent(contactForm));
         return mailMessageDto;
     }
 
     private String generateMailContent(ContactFormDto contactForm) {
-        StringBuilder stringBuilder = new StringBuilder(contactForm.getFirstname()).append(contactForm.getLastname())
-                .append("wants to get information. Please respond as soon as possible.")
-                .append("Treatment:").append(contactForm.getTreatment())
-                .append("Who:").append(contactForm.getPatient())
-                .append("Time:").append(contactForm.getTime())
-                .append("Communication type:").append(contactForm.getCommunicationType())
-                .append("Email:").append(contactForm.getEmail())
-                .append("Telephone Number:").append(contactForm.getTelephoneNumber().getCountryCode()).append(contactForm.getTelephoneNumber().getNumber());
+        StringBuilder stringBuilder = new StringBuilder("<p>Hello,<p>")
+                .append("<p>").append(contactForm.getFirstname()).append(" ").append(contactForm.getLastname())
+                .append(" wants to get information about our services. Please respond as soon as possible.</p>")
+                .append("<p>Treatment: ").append(contactForm.getTreatment()).append("</p>")
+                .append("<p>Who: ").append(contactForm.getPatient()).append("</p>")
+                .append("<p>Time: ").append(contactForm.getTime()).append("</p>")
+                .append("<p>Communication type: ").append(contactForm.getCommunicationType()).append("</p>")
+                .append("<p>Email: ").append(contactForm.getEmail()).append("</p>")
+                .append("<p>Telephone Number: ").append(contactForm.getTelephoneNumber().getCountryCode()).append(" ").append(contactForm.getTelephoneNumber().getNumber()).append("</p>");
         return stringBuilder.toString();
     }
 
