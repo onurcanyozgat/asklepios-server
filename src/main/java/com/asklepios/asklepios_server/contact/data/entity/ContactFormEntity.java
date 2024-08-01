@@ -6,6 +6,7 @@ import com.asklepios.asklepios_server.contact.EnumContactFormTime;
 import com.asklepios.asklepios_server.treatmentservice.data.EnumTreatment;
 import com.asklepios.asklepios_server.util.data.entity.TelephoneNumberEntity;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -18,6 +19,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -26,7 +28,7 @@ public class ContactFormEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Enumerated(EnumType.STRING)
     private EnumTreatment treatment;
@@ -45,6 +47,11 @@ public class ContactFormEntity {
     private String lastname;
 
     private String email;
+
+    private String note;
+
+    @ElementCollection
+    private List<String> imagePaths;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "telephoneNumberId",referencedColumnName = "id")

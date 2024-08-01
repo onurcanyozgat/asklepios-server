@@ -8,10 +8,12 @@ import com.asklepios.asklepios_server.util.data.dto.TelephoneNumberDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 public class ContactFormDto {
-    private long id;
+    private Long id;
 
     private EnumTreatment treatment;
 
@@ -27,5 +29,9 @@ public class ContactFormDto {
 
     private String email;
 
+    private String note;
+
     private TelephoneNumberDto telephoneNumber;
+
+    private List<String> imagePaths;
 }
