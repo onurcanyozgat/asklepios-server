@@ -22,7 +22,9 @@ public class DoctorConverter {
         dto.setContactInfo(entity.getContactInfo());
         dto.setAcademicRank(entity.getAcademicRank());
         dto.setAddress(AddressConverter.toDto(entity.getAddress()));
-        dto.setClinic(ClinicConverter.toDto(entity.getClinic()));
+        if(entity.getClinic() != null) {
+            dto.setClinic(ClinicConverter.toDto(entity.getClinic()));
+        }
         return dto;
     }
 
@@ -39,7 +41,9 @@ public class DoctorConverter {
         entity.setContactInfo(dto.getContactInfo());
         entity.setAcademicRank(dto.getAcademicRank());
         entity.setAddress(AddressConverter.toEntity(dto.getAddress()));
-        entity.setClinic(ClinicConverter.toEntity(dto.getClinic()));
+        if(dto.getClinic() != null) {
+            entity.setClinic(ClinicConverter.toEntity(dto.getClinic()));
+        }
         return entity;
     }
 

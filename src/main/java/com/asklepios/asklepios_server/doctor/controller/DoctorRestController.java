@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -71,5 +73,17 @@ public class DoctorRestController {
             return ResponseEntity.internalServerError().build();
         }
     }
+
+    @Operation(description = "Search doctors by criteria", summary = "Search doctors by criteria", responses = {@ApiResponse(description = "Success", responseCode = "200"),
+            @ApiResponse(description = "Unauthorized / Invalid Token", responseCode = "403")})
+    @GetMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Page<DoctorDto>> search(@RequestParam String searchCriteria, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int size) {
+        try {
+            return ResponseEntity.ok(doctorService.search(searchCriteria, page, size));
+        } catch (Exception ex) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
 
 }

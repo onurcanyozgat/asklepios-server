@@ -12,11 +12,13 @@ import lombok.Data;
 @Table(name = "address")
 public class AddressEntity {
 
+    public static final String CITY = "city";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String address;
+    private String addressContent;
 
     private String city;
 

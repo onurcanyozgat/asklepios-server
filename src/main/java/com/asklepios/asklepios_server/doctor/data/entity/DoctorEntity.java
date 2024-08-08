@@ -29,6 +29,10 @@ import java.util.Set;
 @Table(name = "doctor")
 public class DoctorEntity {
 
+    public static final String NAME = "name";
+    public static final String SPECIALIZATION = "specialization";
+    public static final String ADDRESS = "address";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -60,11 +64,11 @@ public class DoctorEntity {
     @Enumerated(EnumType.STRING)
     private EnumAcademicRank academicRank;
 
-    @OneToOne
-    @JoinColumn(name = "addressId", referencedColumnName = "id")
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
     private AddressEntity address;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "clinic_id")
     private ClinicEntity clinic;
 
