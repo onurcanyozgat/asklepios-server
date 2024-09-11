@@ -14,7 +14,7 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   mail:
-    host: mail.asklepiosbook.com.tr
+    host: host
     port: 465
     username: username
     password: password
