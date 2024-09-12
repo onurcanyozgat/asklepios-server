@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
+    url: jdbc:postgresql://dpg-crhehsaj1k6c73e0m2ng-a:5432/asklepios
+    username: asklepios_user
+    password: SktsIAbfj8KEcQYJzHHP9Vc4mv0ysDjm
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
